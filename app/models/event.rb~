@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
+before_filter :authorize
   attr_accessible :from, :message, :name, :place, :to
   has_many :posts, dependent: :destroy
- # belongs_to :user
+  belongs_to :user
 end

@@ -10,4 +10,10 @@ ActiveAdmin.register Event do
        end
     f.actions
   end
+   def delete_event 
+          @event = Event.find(params[:id])
+          user_id = @event[:user_id]
+           @event.destroy
+          redirect_to(:action => 'index', :notice => 'Event was successfully destroyed.')
+      end
 end
